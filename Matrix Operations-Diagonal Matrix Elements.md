@@ -1,43 +1,46 @@
-# 🧮 List Comprehension:Transpose of Matrix 
+# Matrix Operations-Diagonal Matrix Elements Printer 🧮
 
-## 🎯 AIM:
-To write a Python program to compute the **transpose** of a matrix using **list comprehension**.
+This Python program reads a matrix of any size from the user and prints **only the diagonal elements**, leaving other elements blank in the output.
 
----
+## 📌 Aim
 
-## 🧠 ALGORITHM:
+To write a Python program that prints only the diagonal elements of a given matrix.
 
-1. **Start**
-2. Create variables `r` and `c` to represent the number of rows and columns of the matrix.
-3. Get the values of `r` and `c` from the user.
-4. Define a function `create(r, c)` to create the matrix by reading the elements from the user.
-5. Use **list comprehension** to calculate the transpose of the matrix.
-6. Print the transposed matrix.
-7. **Stop**
+## 🧠 Algorithm
 
----
+1. Read the number of rows and columns from the user.
+2. Initialize an empty matrix of size `rows × columns`.
+3. Populate the matrix with user input.
+4. Display the full matrix.
+5. Iterate through the matrix and:
+   - If `i == j`, print the element (main diagonal).
+   - Else, print a blank space.
+6. Print a newline after each row.
 
-## 💻 PROGRAM:
+## 🖥️ Program
 ```
-def create(r, c):
-    print("Enter matrix row by row:")
-    return [[int(input(f"Element [{i+1}][{j+1}]: ")) for j in range(c)] for i in range(r)]
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
 
-r = int(input("Enter number of rows: "))
-c = int(input("Enter number of columns: "))
+print("Enter the elements row-wise:")
+matrix = [[int(input(f"Element [{i+1}][{j+1}]: ")) for j in range(cols)] for i in range(rows)]
 
-matrix = create(r, c)
-
-transpose = [[matrix[j][i] for j in range(r)] for i in range(c)]
-
-print("Transposed Matrix:")
-for row in transpose:
+print("\nOriginal Matrix:")
+for row in matrix:
     print(row)
 
+print("\nDiagonal Elements:")
+for i in range(rows):
+    for j in range(cols):
+        if i == j:
+            print(matrix[i][j], end=" ")
+        else:
+            print("  ", end=" ")
+    print()
+
 ```
+### Output:
+![image](https://github.com/user-attachments/assets/258c7303-0ac6-4dbb-bad6-60cd0e6ad3bd)
 
-## OUTPUT:
-![image](https://github.com/user-attachments/assets/7c721ddd-bf4e-40fb-aa0d-b5d4de42fa2b)
-
-## RESULT:
+## Result
 Therefore the given Python Program has been executed successfully and the output has been verified.
